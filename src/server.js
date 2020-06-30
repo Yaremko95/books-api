@@ -5,7 +5,8 @@ const cors = require ('cors')
 const app = express()
 
 
-const whitelist = ["http://localhost:3000", "http://localhost:3002"]
+const whitelist =
+    process.env.NODE_ENV ==='production' ? [process.env.FE_URL_PROD] : [process.env.FE_URL_DEV]
 
 const corsOptions = {
     origin: function (origin, callback) {
